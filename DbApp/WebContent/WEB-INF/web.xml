@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>ServletApp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <resource-ref>
+  	<res-ref-name>jdbc/oracleDB</res-ref-name>
+  	<res-type>javax.sql.DataSource</res-type>
+  	<res-auth>Container</res-auth>
+  </resource-ref>
+  
+  
+    <!--클래스의 인스턴스 생성 -->
+  <servlet>
+	<servlet-name>hw</servlet-name>
+	<servlet-class>myservlet.test.homework</servlet-class>
+  
+  </servlet>
+
+	<!-- 서블릿의 URL 설정 -->
+	<servlet-mapping>
+		<servlet-name>hw</servlet-name>
+		<url-pattern>/homework.do</url-pattern>  <!--사용자 측에서 클래스이름으로 접근하는대신 임의의이름을 지정하여 그곳으로 접근하게함-->
+	
+	</servlet-mapping>
+	
+	
+	
+	    <!--클래스의 인스턴스 생성 -->
+  <servlet>
+	<servlet-name>req</servlet-name>
+	<servlet-class>myservlet.test.ServletInfo</servlet-class>
+  
+  </servlet>
+
+	<!-- 서블릿의 URL 설정 -->
+	<servlet-mapping>
+		<servlet-name>req</servlet-name>
+		<url-pattern>/reqInfo.do</url-pattern>  <!--사용자 측에서 클래스이름으로 접근하는대신 임의의이름을 지정하여 그곳으로 접근하게함-->
+	
+	</servlet-mapping>
+	
+	
+	
+	
+		    <!--클래스의 인스턴스 생성 -->
+  <servlet>
+	<servlet-name>cook</servlet-name>
+	<servlet-class>myservlet.test.CookieServlet</servlet-class>
+  
+  </servlet>
+
+	<!-- 서블릿의 URL 설정 -->
+	<servlet-mapping>
+		<servlet-name>cook</servlet-name>
+		<url-pattern>/cook.action</url-pattern>  <!--사용자 측에서 클래스이름으로 접근하는대신 임의의이름을 지정하여 그곳으로 접근하게함-->
+	
+	</servlet-mapping>
+	
+	
+	
+			    <!--클래스의 인스턴스 생성 -->
+  <servlet>
+	<servlet-name>ss</servlet-name>
+	<servlet-class>myservlet.test.SessionServlet</servlet-class>
+  
+  </servlet>
+
+	<!-- 서블릿의 URL 설정 -->
+	<servlet-mapping>
+		<servlet-name>ss</servlet-name>
+		<url-pattern>/ss.action</url-pattern>  <!--사용자 측에서 클래스이름으로 접근하는대신 임의의이름을 지정하여 그곳으로 접근하게함-->
+	
+	</servlet-mapping>
+</web-app>

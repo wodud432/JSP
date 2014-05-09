@@ -12,7 +12,7 @@
 <%
    try{
       Class.forName("oracle.jdbc.driver.OracleDriver"); //자르파일 연결.
-      String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+      String url = "jdbc:oracle:thin:@192.168.0.29:1521:orcl";
       Connection con = DriverManager.getConnection(url,"scott","1111");  // 연결 끝
    if(con !=null)
          {

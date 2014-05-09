@@ -18,18 +18,10 @@
   
   
     <!--클래스의 인스턴스 생성 -->
-  <servlet>
-	<servlet-name>hw</servlet-name>
-	<servlet-class>myservlet.test.homework</servlet-class>
   
-  </servlet>
 
 	<!-- 서블릿의 URL 설정 -->
-	<servlet-mapping>
-		<servlet-name>hw</servlet-name>
-		<url-pattern>/homework.do</url-pattern>  <!--사용자 측에서 클래스이름으로 접근하는대신 임의의이름을 지정하여 그곳으로 접근하게함-->
 	
-	</servlet-mapping>
 	
 	
 	

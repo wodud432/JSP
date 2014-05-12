@@ -5,6 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
 <title>Insert title here</title>
 <script type="text/javascript">
+
+
    function fnAddInput(){
       var cnt = document.forms[0].add.value;  //폼이름을 따로지정안해서 배열로 접근 -> 입력할 파일개수 가져옴
       var div = document.getElementById("inputDiv");//위치를 알아냄

@@ -55,7 +55,7 @@
 </tr>
 <tr>
    <td colspan="4">
-      추가할 파일 수 입력 : <input type="text" name="add"/>&nbsp;&nbsp;
+      추가할 파일 수f 입력 : <input type="text" name="add"/>&nbsp;&nbsp;
       <input type="button" value="확인" onclick="fnAddInput()"/>
    </td>
 </tr>

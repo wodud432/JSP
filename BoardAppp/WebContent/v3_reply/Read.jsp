@@ -11,6 +11,7 @@
 	String keyField = request.getParameter("keyField");
 	String keyWord = request.getParameter("keyWord");
 
+
 	BoardDto dto = dao.getBoard(num);
 	String name = dto.getName();
 	String email = dto.getEmail();

@@ -3,7 +3,8 @@
 <jsp:useBean id="dao" class="mybean.board.BoardDao" />
 <%
 	int num = Integer.parseInt(request.getParameter("num"));
-	
+
+
 	BoardDto dto = dao.getBoard(num);
 %>
 <html>
@@ -16,13 +17,15 @@
 	     	form.pass.focus();
 		 	return false;
 		}
-	   	
+
+
 	   	// 여기서 검사하면 패스워드 다 노출된다.
 	   	document.form.submit();
 	}
 </script>
 </head>
 <body>
+
 
 <center>
 <br><br>
@@ -31,6 +34,7 @@
    <td bgcolor=#FF9018  height=21 align=center class=m>수정하기</td>
   </tr>
 </table>
+
 
 <form name=form method=post action="UpdateProc.jsp" >
 <input type="hidden" name="num" value="<%=dto.getNum()%>" />

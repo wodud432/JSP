@@ -6,6 +6,7 @@
 	String pass1 = request.getParameter("pass");
 	BoardDto dto = dao.getBoard(num);
 
+
 	if(pass1 != null){
 		if(pass1.equals(dto.getPass())){
 			dao.deleteBoard(num);

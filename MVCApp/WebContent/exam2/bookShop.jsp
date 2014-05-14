@@ -8,7 +8,9 @@
 </head>
 <body>
 <h1>도서 주문 페이지</h1>
-<form>
+
+<form method="post" action="/MVCApp/cart.action"> <!-- 맨앞의 / 는 8080까지의 경로임 -->
+<input type="hidden" name="command" value="ADD" /> <!--  들어오는게 어떤 요청인지를 서버에서 구분할 수 있게함 -->
 <b>도서 선택 : </b>
 <select name="book">
 	<option>어린왕자 / 생떽쥐페리 / 15000</option>

@@ -31,5 +31,36 @@
   <!-- http://localhost:8080/MVCApp/depart.action -->
  </servlet-mapping>
  
+ 
+   <servlet>
+ <servlet-name>cart</servlet-name>  <!--톰캣에 알리기위한 임의의이름-->
+ <servlet-class>mvc.exam2.BookController</servlet-class>  
+  
+  </servlet>
+
+ <!-- 서블릿의 URL 설정 -->
+ <servlet-mapping>
+  <servlet-name>cart</servlet-name>  <!--클래스의 인스턴스 생성 -->
+  <url-pattern>/cart.action</url-pattern>  <!--/는 절대적 경로-->
+
+ </servlet-mapping>
+ 
+ 
+ 
+   
+  <!--클래스의 인스턴스 생성 -->
+  <servlet>
+ <servlet-name>front</servlet-name>  <!--톰캣에 알리기위한 임의의이름-->
+ <servlet-class>mvc.exam3.FrontController</servlet-class>  
+  
+  </servlet>
+
+ <!-- 서블릿의 URL 설정 -->
+ <servlet-mapping>
+  <servlet-name>front</servlet-name>  <!--클래스의 인스턴스 생성 -->
+  <url-pattern>/front.action</url-pattern>  <!--/는 절대적 경로-->
+
+ </servlet-mapping>
+ 
   
 </web-app>

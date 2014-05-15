@@ -1,21 +1,32 @@
-<?xml version="1.0" encoding="EUC-KR" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
+<script type="text/javascript">
+
+	function zipSearch()
+	{
+		
+		window.open("/MVCApp/exam3/zipSearch.jsp", "post", "toolbars=no, width=500, height=300, status=no, scrollbars=yes, menubars=no"); //ìš°í¸ë²ˆí˜¸ ì°¾ê¸° í˜ì´ì§€
+		
+		
+	}
+
+</script>
 </head>
 <body>
-<h1>È¸¿ø °¡ÀÔ</h1>
+<h1>íšŒì› ê°€ì…</h1>
 <form method="post" action="/MVCApp/front.action">
 	<input type="hidden" name="cmd" value="REGCONFIRM" />
-	¾ÆÀÌµğ : <input type="text" name="id" /><br/><br/>
-	ÀÌ¸§ : <input type="text" name="name" /><br/><br/>
-	¿ìÆí¹øÈ£ : <input type="text" name="zip1" size="3" readonly="true"/>-
+	ì•„ì´ë”” : <input type="text" name="id" /><br/><br/>
+	ì´ë¦„ : <input type="text" name="name" /><br/><br/>
+	ìš°í¸ë²ˆí˜¸ : <input type="text" name="zip1" size="3" readonly="true"/>-
 			<input type="text" name="zip2" size="3" readonly="true"/><br/><br/>
-			<input type="button" value="¿ìÆí¹øÈ£ Ã£±â" />
-	ÁÖ¼Ò : <input type="text" name="addr" size="60"/><br/><br/>
-	<input type="submit" value="°¡ÀÔ" />
+			<input type="button" value="ìš°í¸ë²ˆí˜¸ ì°¾ê¸°" onclick="zipSearch()"/>
+	ì£¼ì†Œ : <input type="text" name="addr" size="60"/><br/><br/>
+	<input type="submit" value="ê°€ì…" />
 </form>
 
 

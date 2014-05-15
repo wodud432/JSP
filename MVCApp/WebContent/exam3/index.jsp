@@ -1,16 +1,16 @@
 
-<%@ page contentType="text/html; charset=EUC-KR" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
-<h1>¸ŞÀÎ ÆäÀÌÁö</h1>
+<h1>ë©”ì¸ í˜ì´ì§€</h1>
 
 <ul>
-	<li><a href="http://Localhost:8080/MVCApp/front.action?cmd=REG">È¸¿ø °¡ÀÔ</a></li>	 <!-- cmd=REG °Ù¹æ½ÄÀ¸·Î ÀÎÀÚÀü´Ş(È÷µçÀ» ¾µ¼ö ¾ø±â¶§¹®¿¡) -->
+	<li><a href="http://Localhost:8080/MVCApp/front.action?cmd=REG">íšŒì› ê°€ì…</a></li>	 <!-- cmd=REG ê²Ÿë°©ì‹ìœ¼ë¡œ ì¸ìì „ë‹¬(íˆë“ ì„ ì“¸ìˆ˜ ì—†ê¸°ë•Œë¬¸ì—) -->
 </ul>
 
 </body>

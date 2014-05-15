@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>가입 완료</h1>
-가입을 축하합니다<br/>
-<a href="/MVCApp/front.action?cmd=MAIN">메인 페이지로</a>          
-
+<!-- 이미 가입되어있을때 보여지는 페이지 -->
+<h1>이미 가입되셨습니다</h1>
 </body>
 </html>

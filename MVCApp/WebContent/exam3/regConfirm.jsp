@@ -1,22 +1,22 @@
 
-<%@ page contentType="text/html; charset=EUC-KR" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
-<h1>È¸¿ø °¡ÀÔ È®ÀÎ</h1>
+<h1>íšŒì› ê°€ìž… í™•ì¸</h1>
 <form method="post" action="/MVCApp/front.action">
 	<input type="hidden" name="cmd" value="REGCOMPLETE" />
-	´ç½ÅÀÌ ÀÔ·ÂÇÑ ³»¿ëÀº ´ÙÀ½°ú °°½À´Ï´Ù.<br/>
+	ë‹¹ì‹ ì´ ìž…ë ¥í•œ ë‚´ìš©ì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.<br/>
 	<ul>
-		<li>¾ÆÀÌµð : </li>
-		<li>ÀÌ¸§ : </li>
-		<li>ÁÖ¼Ò : </li>
+		<li>ì•„ì´ë”” : </li>
+		<li>ì´ë¦„ : </li>
+		<li>ì£¼ì†Œ : </li>
 	</ul>
-	<input type="submit" value="°¡ÀÔ ¿Ï·á" />
+	<input type="submit" value="ê°€ìž… ì™„ë£Œ" />
 
 </form>
 </body>

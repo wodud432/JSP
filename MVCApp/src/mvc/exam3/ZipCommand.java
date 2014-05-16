@@ -61,6 +61,7 @@ public class ZipCommand implements ICommand {
 			pool.freeConnection(con, stmt, rs);
 		}
 		System.out.println(v.size());
+		req.setAttribute("zip", v);
 		return "/exam3/zipSearch.jsp";
 	}
 

@@ -37,7 +37,7 @@
 	CarDto[] cars = parking.getCarDto(); 
 	for(int i=0; i<cars.length; i++){
 		car = cars[i];
-		//pageContext.setAttribute("car", cars[i]);
+		//p2a00geContext.setAttribute("car", cars[i]);
 	*/
 	
 	List cars = parking.getCarDto();

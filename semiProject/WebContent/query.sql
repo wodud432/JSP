@@ -15,12 +15,13 @@ Create table tblemp
 	phone		varchar2(30),
 	email		varchar2(30),
 	job			varchar2(30),
-	ADDR		varchar2(100),
+	ADDR		varchar2(500),
 	hiredate	date,
 	jijumno		number
 	
 	
 );
+drop table tblemp;
 --select * from scott.tblemp;
 
 create table timetable

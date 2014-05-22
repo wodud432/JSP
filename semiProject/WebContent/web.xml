@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>BoardApp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <resource-ref>
+  	<res-ref-name>jdbc/oracleDB</res-ref-name>
+  	<res-type>javax.sql.DataSource</res-type>
+  	<res-auth>Container</res-auth>
+  </resource-ref>
+  
+  
+  <!--클래스의 인스턴스 생성 -->
+  <servlet>
+ <servlet-name>depart</servlet-name>  <!--톰캣에 알리기위한 임의의이름-->
+ <servlet-class>mvc.exam1.DepartServlet</servlet-class>  
+  
+  </servlet>
+
+ <!-- 서블릿의 URL 설정 -->
+ <servlet-mapping>
+  <servlet-name>depart</servlet-name>  <!--클래스의 인스턴스 생성 -->
+  <url-pattern>/depart.action</url-pattern>  <!--/는 절대적 경로-->
+  <!-- http://localhost:8080/MVCApp/depart.action -->
+ </servlet-mapping>
+ 
+ 
+   <servlet>
+ <servlet-name>cart</servlet-name>  <!--톰캣에 알리기위한 임의의이름-->
+ <servlet-class>mvc.exam2.BookController</servlet-class>  
+  
+  </servlet>
+
+ <!-- 서블릿의 URL 설정 -->
+ <servlet-mapping>
+  <servlet-name>cart</servlet-name>  <!--클래스의 인스턴스 생성 -->
+  <url-pattern>/cart.action</url-pattern>  <!--/는 절대적 경로-->
+
+ </servlet-mapping>
+ 
+ 
+ 
+   
+  <!--클래스의 인스턴스 생성 -->
+  <servlet>
+ <servlet-name>front</servlet-name>  <!--톰캣에 알리기위한 임의의이름-->
+ <servlet-class>mvc.exam3.FrontController</servlet-class>  
+  
+  </servlet>
+
+ <!-- 서블릿의 URL 설정 -->
+ <servlet-mapping>
+  <servlet-name>front</servlet-name>  <!--클래스의 인스턴스 생성 -->
+  <url-pattern>/front.action</url-pattern>  <!--/는 절대적 경로-->
+
+ </servlet-mapping>
+ 
+  
+</web-app>

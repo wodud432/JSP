@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="ajax.js"></script>
+<script>
+
+	function fnSubmit()
+	{	
+		
+		var url = "Basic01_proc.jsp";
+		var paramValue = document.getElementById("name").value;
+	    var params = "name="+paramValue;
+	    
+		sendRequest(url, params, callback, null);
+		
+	}
+
+   function callback(){
+      if(httpRequest.readyState==4){
+         if(httpRequest.status==200){
+            //alert(httpRequest.responseText);
+            var data = httpRequest.responseText;  //데이터를 받아서 data에 넣음
+            var div = document.getElementById("display");
+            div.innerHTML = data;
+         }
+         else{
+            alert(httpRequest.status);
+         }
+      }
+   }
+</script>
+</head>
+<body>
+<input type="text" name="name" id="name"/>
+<input type="button" value="전송" onclick="fnSubmit()"/>
+<hr/>
+<div id="display"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

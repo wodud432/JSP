@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+   var httpRequest=null;
+   function getXMLHttpRequest(){
+      return new XMLHttpRequest();
+   }
+   
+   function fnSubmit(){
+      httpRequest = getXMLHttpRequest();
+      httpRequest.onreadystatechange=callback;
+      
+      var paramValue = document.getElementById("name").value;
+      var param = "Basic01_proc.jsp?name="+paramValue;
+      httpRequest.open("GET", param, true);
+      httpRequest.send(null);
+   }
+   function callback(){
+      if(httpRequest.readyState==4){
+         if(httpRequest.status==200){
+            //alert(httpRequest.responseText);
+            var data = httpRequest.responseText;  //데이터를 받아서 data에 넣음
+            var div = document.getElementById("display");
+            div.innerHTML = data;
+         }else{
+            alert(httpRequest.status);
+         }
+      }
+   }
+</script>
+</head>
+<body>
+<input type="text" name="name" id="name"/>
+<input type="button" value="전송" onclick="fnSubmit()"/>
+<hr/>
+<div id="display"></</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

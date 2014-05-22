@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+<script>
+	var httpRequest = null;
+
+	function getXMLHttpRequest()
+	{
+		if(window.ActiveXObject)
+		{
+			//익플 7이하버전에서 객체를 구하기
+			try
+			{
+				return new ActiveXObject("Msxml2.XMLHTTP");
+
+				
+			}
+			catch (e)
+			{
+				return new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		}
+		else if(window.XMLHttpRequest)//익플8에서 객체를 구하기
+		{
+			return new XMLHttpRequest();	
+		}
+		else
+		{
+			return null;
+		}
+		
+	}
+
+	function fnSubmit(url)
+	{
+		httpRequest = getXMLHttpRequest(); //객체생성
+		httpRequest.onreadystatechange = callback;//응답을 받기위함, onreadystatechange 이벤트에 특정 함수의 주소를 넘겨줌( ()를 안넣어서 바로호출하지않고 예약만 함 -> 밑에 function callback() 에서 호출됨)
+		//서버로부터 응답이 왔을때, 상태가 바뀔때마다 이벤트가 발생됨
+
+
+		httpRequest.open("GET", url, true);
+		//httpRequest.open(갯 포스트, 유알엘주소, 동기식 비동기식(true)); //open -> 서버에연결 문좀열어줄래 요청
+
+
+		httpRequest.send(null); //서버에 데이터 보냄 ->새로고침안해도 사용자는 새로운내용을 계속 받을 수 있다(null이 오면 무조건 get방식임)
+	}
+
+	function callback() 
+	{
+		if(httpRequest.readyState == 4)
+		{
+			if(httpRequest.stauts == 200)
+			{
+				alert("서버로부터 응답 : " + httpRequest.responseText);  //responseText 서버가 보낸 데이터를 받음
+			}
+			else
+			{
+				alert("실패 : " + httpRequest.status);
+			}
+		}
+	}
+
+</script>
+ 
+ </head>
+
+
+ <body>
+  <input type="button" value="simple.txt(utf-8)" onclick="fnSubmit('simple.txt')"/>  <br/><br/>
+  <!--기존의 방식은 폼테그안에 서브밋 만들어서 서버로 전송하는건데  ajax는 다름-->
+  <input type="button" value="simple.txt(euc-kr)" onclick="fnSubmit('simple2.txt')"/> <br/><br/> 
+
+  <input type="button" value="simple.jsp(utf-8)" onclick="fnSubmit('simple.jsp')"/> 
+
+ </body>
+</html>

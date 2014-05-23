@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<!--AsciiServlet 클래스 작성 -->
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+   <script src=ajax.js></script>
+   <script>
+      function fnConvert(){
+         var key = document.getElementById("key");
+         document.getElementById("keyPressed").value = key.value;
+         
+         var url = "/AjaxApp/ascii.do"; //프로젝트명, 
+         var params = "key=" + key.value; 
+         sendRequest(url, params, callback, null);
+      }
+      
+      function callback(){
+         if(httpRequest.readyState==4){
+            if(httpRequest.status==200){
+               document.getElementById("decimal").value=httpRequest.responseText;
+            }else{
+               alert(httpRequest.status);
+            }
+         }
+      }
+   </script>
+</head>
+<body>
+   <h1>Ajax를 이용한 문자 변환</h1>
+   키를 입력하시오: <input type="text" id="key" name="key" onkeyup="fnConvert();"/>
+   <br/><br/>
+   입력된 키 값 : <input type="text" id="keyPressed" name="keyPressed" />
+   <br/><br/>
+   변환된 키 값 : <input type="text"   id="decimal" name="decimal"/>   
+</body>
+</html>

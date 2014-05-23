@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="ajax.js"></script>
+<script>
+   var xmlDoc = null, xslDoc =null;
+   
+   function fnViewBooks(){
+      sendRequest("books.jsp", null, callback, null);   //데이터 이후 디자인 받기
+      
+   }
+   
+   function callback(){
+      if(httpRequest.readyState==4){
+         if(httpRequest.status ==200){
+         xmlDoc = httpRequest.responseXML;//xml 불러오기
+         sendRequest("books.xsl",null,callback2, null)
+         }
+         }
+      }
+   
+   function callback2(){
+      if(httpRequest.readyState==4){
+         if(httpRequest.status ==200){
+         xslDoc = httpRequest.responseXML;
+         doXSLT();      
+         }
+      }
+   }
+      
+   if(window.ActiveXObject){//ie 7버전 이하
+      bookList.innerHTML = xmlDoc.transformNode(xslDoc);
+   }
+   else if(typeof transformNode != "undefined"){
+      var xsltProc = new XSLTProcessor();
+      xsltProc.importStylesheet(xslDoc);
+      var fragment = xsltProc.transformToFragment(xmlDoc, document);
+      bookList.appendChild(fragment);         
+   }
+   else{
+      alert("Internet Explorer11은 지원이 되지 않습니다.");
+   }
+   
+   window.onload=function(){fnViewBooks();}
+</script>
+</head>
+<body>
+<h1>신규책 목록</h1>
+<div id="bookList"></div>
+</body>
+</html>

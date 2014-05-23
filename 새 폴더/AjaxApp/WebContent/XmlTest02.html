@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="ajax.js"></script>
+<script>
+var xmlDoc = null, xslDoc = null;
+
+
+function fnViewBooks(){
+	sendRequest("books.jsp", null, callback, null);
+}
+
+
+function callback(){
+	if(httpRequest.readyState == 4){
+		if(httpRequest.status == 200){
+			xmlDoc = httpRequest.responseXML;
+			sendRequest("books.xsl", null, callback2, null);
+		}
+		else{
+			alert(httpRequest.status);
+		}
+	}
+}
+
+
+function callback2(){
+	if(httpRequest.readyState == 4){
+		if(httpRequest.status == 200){
+			xslDoc = httpRequest.responseXML;
+			doXSLT();
+		}
+	}
+}
+
+
+function doXSLT(){
+	if(xmlDoc == null || xslDoc == null)
+		return;
+
+
+	var bookList = document.getElementById("bookList");
+
+
+	if(window.ActiveXObject){
+		bookList.innerHTML = xmlDoc.transformNode(xslDoc);
+	}
+	else if(typeof transformNode != "undefined"){
+		var xsltProc = new XSLTProcessor();
+		xsltProc.importStylesheet(xslDoc);
+		var fragment = xsltProc.transformToFragment(xmlDoc, document);
+		bookList.appendChild(fragment);
+	}
+	else{
+		alert("no");
+	}
+}
+
+
+window.onload = function(){fnViewBooks();}
+
+</script>
+</head>
+<body>
+
+   <h1>신규 책 목록</h1>
+<div id="bookList"></div>
+</body>
+</html>

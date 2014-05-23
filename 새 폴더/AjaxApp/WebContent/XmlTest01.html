@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="ajax.js"></script>
+<script>
+	function fnViewBooks()
+	{
+		sendRequest("Books.jsp", null, callback, null);
+		
+	}
+	
+	function callback()
+	{
+		 if(httpRequest.readyState==4)
+		 {
+            if(httpRequest.status==200)
+            {
+            	//alert(httpRequest.responseText); //<title>홍길동전</title>... 뜸 일반텍스트형식으로 받아옴
+            	
+            	var doc = httpRequest.responseXML; //XML형식으로 받아옴(태그를 기준으로 접근함)
+            	var bookList = doc.getElementsByTagName("book");
+            	
+            	
+            	var msg = "책 권수 : " + bookList.length + "권\n";
+            	
+            	for(var i=0; i<bookList.length; i++)
+            		{
+            			var book = bookList.item(i);
+            			var title = book.getElementsByTagName("title").item(0).firstChild.nodeValue;
+            			var author = book.getElementsByTagName("author").item(0).firstChild.nodeValue;
+            			
+            			msg += title + "(" + author + ")\n";
+            		}alert(bookList.length+msg);
+            }
+            else
+            {
+               alert(httpRequest.status);
+            }
+         }
+		
+		
+	}
+	
+	window.onload = function(){fnViewBooks();}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

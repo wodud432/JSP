@@ -48,35 +48,43 @@ function fnSubmit()
 }
 
 function callback(){
-    if(httpRequest.readyState==4){
-       if(httpRequest.status==200){
-          
-          var data = httpRequest.responseText;
-          var span = document.getElementById("maxTemp");
-          
-          var splitData = data.split(",");
-          var arrData = new Array(splitData.length);
-          for(var i=0;i<splitData.length; i++){
-             arrData[i] = parseFloat(splitData[i]);
-          }
-          var max = arrData[0];
-          for(var i=1; i<arrData.length; i++){
-             if(max<arrData[i]){
-                max=arrData[i];
-             }
-          }
-          span.innerHTML = max;
-       }else{
-          alert(httpRequest.status);
-       }}
-    }
- }
- window.onload = function (){
-    fnSubmit();
- }
+	if(httpRequest.readyState == 4){
+		if(httpRequest.status == 200){
+			var data = httpRequest.responseText;
+			var span = document.getElementById("maxTemp");
+
+
+			var splitData = data.split(",");
+			var arrData = new Array(splitData.length);
+
+
+			for(var i=0; i<splitData.length; i++){
+				arrData[i] = parseFloat(splitData[i]);
+			}
+
+
+			var max = arrData[0];
+			for(var i=1; i<arrData.length; i++){
+				if(max < arrData[i]){
+					max = arrData[i];
+				}
+			}
+
+
+			span.innerHTML = max;
+		}
+		else{
+			alert(httpRequest.status);
+		}
+	}
+} 
+
+
+window.onload = function (){fnSubmit();}
 </script>
 </head>
 <body>
+
 <h2>최근 4일간 최고 기온 :<span id="maxTemp"></span></h2>
 서버에서는 데이터만 보내고 클라이언트에서 받은데이터를 처리(최고온도를 뽑는다던가 등등 가공을 클라이언트에서 함)
 </body>

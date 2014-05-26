@@ -18,16 +18,18 @@
 </head>
 <body>
 <h1>회원 가입</h1>
-<form method="post" action="/MVCApp/front.action">
-	<input type="hidden" name="cmd" value="REGCONFIRM" />
+<form method="post" action="/MVCApp/reg.action" name="f">
+	<input type="hidden" name="command" value="REGCONFIRM" />
 	아이디 : <input type="text" name="id" /><br/><br/>
 	이름 : <input type="text" name="name" /><br/><br/>
-	우편번호 : <input type="text" name="zip1" size="3" readonly="true" value="<%=get%>"/> -
-			<input type="text" name="zip2" size="3" readonly="true"/><br/><br/>
-			<input type="button" value="우편번호 찾기" onclick="zipSearch()"/>
+	우편번호 : <input type="text" name="zip1" size="3" readonly="true"/> - 
+		<input type="text" name="zip2" size="3" readonly="true"/>
+		<input type="button" value="우편번호 찾기" onclick="zipSearch()"/>
+		<br/><br/>
 	주소 : <input type="text" name="addr" size="60"/><br/><br/>
 	<input type="submit" value="가입" />
-</form> 
+</form>
+
 
 
 

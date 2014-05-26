@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="member.js"></script>
+<script src="ajax.js"></script>
+<script>
+	function doStart()
+	{		 
+		sendRequest("member_xml_json.jsp", null, callback, null);		 
+	}
+	
+	 function callback() 
+	   {
+	      if (httpRequest.readyState == 4) 
+	      {
+	         if (httpRequest.status == 200) 
+	         {
+	        	
+		    	var xmlDoc = httpRequest.responseXML;
+		    		    	
+		    	var code = xmlDoc.getElementsByTagName("code")[0].firstChild.nodeValue;
+				
+	      
+	        	if(code=="success"){
+	        		
+	        		var jsonData = xmlDoc.getElementsByTagName("data")[0].firstChild.nodeValue;
+					var data = eval("(" + jsonData + ")");
+					alert(data.name + ", " + data.age + ", " + data.id);
+
+	        		}
+	        	else
+	        		{
+	        			alert("실패");
+	        		}
+	         } 
+	         else 
+	         {
+	            alert(httpRequest.status);
+	         }
+	         
+	      }
+	   }
+	
+	window.onload = function(){doStart();}
+//두개융합할일 별로없데요 ㅇㅇ 복잡한데이터는 좀부족할때가있을경우도있다네요
+//그런것을가정해서 이예제를 시작한다는군요
+
+</script>
+</head>
+<body>
+<h2>서버로부터 XML과 JSON 타입의 데이터를 받는 예제</h2>
+
+</body>
+</html>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="euc-kr" ?>
-
 <%@ page contentType="text/xml; charset=EUC-KR" %>
 
 <%-- <%<?xml-stylesheet type="text/xsl" href="books.xsl" ?> %> --%>

@@ -72,11 +72,17 @@
 		%>		
 		<tr>
 			<td>
-				<a href="javascript:fnSendAddress('<%=dto.getZipcode()%>','<%=dto.getSido()%>','<%=dto.getGugun()%>','<%=dto.getDong()%>','<%=bunji%>')"> <!--  자바스크립트 함수를 호출하라는뜻 (다른데로 이동하는게 아니고) -->
+				<%-- <a href="javascript:fnSendAddress('<%=dto.getZipcode()%>','<%=dto.getSido()%>','<%=dto.getGugun()%>','<%=dto.getDong()%>','<%=bunji%>')"> <!--  자바스크립트 함수를 호출하라는뜻 (다른데로 이동하는게 아니고) -->
+					 <a href="javascript:fnSendAddress('<%=dto.getZipcode()%>','<%=dto.getSido()%>','<%=dto.getGugun()%>','<%=dto.getDong()%>','<%=bunji%>')">
 				<%=dto.getZipcode()%>&nbsp;&nbsp;<%=dto.getSido()%>&nbsp;&nbsp;
 				<%=dto.getGugun()%>&nbsp;&nbsp;<%=dto.getDong()%>&nbsp;&nbsp;
-				<%=bunji%>
-				</a>
+				<%=bunji%></a> --%>
+				<a href="javascript:fnSendAddress('<%=dto.getZipcode()%>','<%=dto.getSido()%>','<%=dto.getGugun()%>','<%=dto.getDong()%>','<%=bunji%>')">
+			<%=dto.getZipcode()%>&nbsp;&nbsp;<%=dto.getSido()%>&nbsp;&nbsp;
+			<%=dto.getGugun()%>&nbsp;&nbsp;<%=dto.getDong()%>&nbsp;&nbsp;
+			<%=bunji%></a>
+				
+				
 			</td>
 		</tr>
 			

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+window.onload = function()
+{
+	var map1 = {ko:"afeafe", fr:"fawefasef", uk:"faswefasef"};
+	alert(map1.ko + "," + map1["fr"]); //맵형태
+	
+	var array1 = ["asefasfe", "xzcvbertg", "34terg"];
+	alert(array1[0] + "," + array1[2]);  //배열형태
+	
+	
+	//혼합
+	var mix = {name:"홍길동", food:["짜장면", "갈비", "치킨"], favoriteColor:["빨강", "파랑", "노랑"]};
+	
+	var msg = mix.name + "님이 좋아하는 음식은 " + mix.food.length + "개이고 그중 첫번째 음식은 " + mix.food[0] + "입니다";
+	
+	alert(msg);
+	
+	
+	 
+}
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

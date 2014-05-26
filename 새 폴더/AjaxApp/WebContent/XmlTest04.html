@@ -1,53 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 <script src="ajax.js"></script>
 <script>
-   var xmlDoc = null, xslDoc =null;
-   
-   function fnViewBooks(){
-      sendRequest("books.jsp", null, callback, null);   //ë°ì´í„° ì´í›„ ë””ìì¸ ë°›ê¸°
-      
+
+   function doStart()
+   {
+
+      var params = "task=reset";
+      alert("ang?");
+      sendRequest("/AjaxApp/dynamic.go", params, callback, "GET");
    }
-   
-   function callback(){
-      if(httpRequest.readyState==4){
-         if(httpRequest.status ==200){
-         xmlDoc = httpRequest.responseXML;//xml ë¶ˆëŸ¬ì˜¤ê¸°
-         sendRequest("books.xsl",null,callback2, null)
+
+   function callback() 
+   {
+      if (httpRequest.readyState == 4) 
+      {
+         if (httpRequest.status == 200) 
+         {
+        	 var s = 10;
+        	 document.getElementById("time").value = s;
+          alert(s);
+          setInterval(pollServer, 2000); //5ÃÊ¸¶´Ù Æú¼­¹ö°¡ ½ÇÇàµÇ°Ô ÇÔ
+          
+         } 
+         
+         else 
+         {
+            alert(httpRequest.status);
          }
-         }
+         
       }
-   
-   function callback2(){
-      if(httpRequest.readyState==4){
-         if(httpRequest.status ==200){
-         xslDoc = httpRequest.responseXML;
-         doXSLT();      
-         }
-      }
-   }
-      
-   if(window.ActiveXObject){//ie 7ë²„ì „ ì´í•˜
-      bookList.innerHTML = xmlDoc.transformNode(xslDoc);
-   }
-   else if(typeof transformNode != "undefined"){
-      var xsltProc = new XSLTProcessor();
-      xsltProc.importStylesheet(xslDoc);
-      var fragment = xsltProc.transformToFragment(xmlDoc, document);
-      bookList.appendChild(fragment);         
-   }
-   else{
-      alert("Internet Explorer11ì€ ì§€ì›ì´ ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
    }
    
-   window.onload=function(){fnViewBooks();}
+   function pollServer() //(8)
+   {
+	   var params = "task=bravo"; //(9)
+	   sendRequest("/AjaxApp/dynamic.go", params, pollCallback, "GET") //(10)
+   }
+   
+   function pollCallback() //(11)¼­¹ö°¡ º¸³»ÁØ ¸Ş¼¼Áö¸¦ µ¼À» ÀÌ¿ëÇÏ¿© ¿øÇÏ´Â°Í¸¸ Ãâ·ÂµÇ°ÔÇÔ
+   {
+	   if (httpRequest.readyState == 4) 
+	      {
+	         if (httpRequest.status == 200) 
+	         {	        	 
+	        	var xmlDoc = httpRequest.responseXML;
+	          	var msg = xmlDoc.getElementsByTagName("message")[0].firstChild.nodeValue;
+	          	new_row = createRow(msg);//(13)
+	          	alert("test : "+msg);
+	          	
+	          	var table = document.getElementById("dynamicUpdateArea"); //(14)
+	          	var tbody = table.getElementsByTagName("tbody").item(0);
+	          	var first_row = tbody.getElementsByTagName("tr").item(0);
+	          	
+	          
+	          	tbody.insertBefore(new_row, first_row);//(15)
+	          	
+	         } 
+	         
+	         else 
+	         {
+	            alert(httpRequest.status);
+	         }
+   	}
+   }
+   
+   function createRow(message)  //(12)
+   {
+	   var row = document.createElement("tr");
+	   var cell = document.createElement("td");
+	   var cell_date = document.createTextNode(message);
+	   cell.appendChild(cell_date);
+	   row.appendChild(cell);
+	   return row;
+   }
+   
 </script>
 </head>
 <body>
-<h1>ì‹ ê·œì±… ëª©ë¡</h1>
-<div id="bookList"></div>
+<h1>ÀÌ ÆäÀÌÁö´Â ÀÚµ¿À¸·Î ¾÷µ¥ÀÌÆ®</h1>
+<input type="button" value="½ÇÇà" id="good" onclick="doStart()" />
+<br/><br/>
+ÀÌ ÆäÀÌÁö´Â <span id="time">3</span>ÃÊ ÈÄ¿¡ °»½Å µË´Ï´Ù.
+<br/><br/>
+
+<table id="dynamicUpdateArea">
+   <tbody>
+      <tr id="row">
+      	<td></td>
+      </tr>
+   </tbody>
+</table>
+
 </body>
 </html>

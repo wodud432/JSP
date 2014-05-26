@@ -11,7 +11,7 @@ public class MainCommand implements ICommand {
 	@Override
 	public Object processCommand(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		return "/exam3/index.jsp";  //∞¥√º»≠ Ω√≈¥(3)
+		return "/exam3/in dex.jsp";  //∞¥√º»≠ Ω√≈¥(3)
 	}
 
 }

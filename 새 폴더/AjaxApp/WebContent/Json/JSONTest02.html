@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+	window.onload = function()
+	{
+		
+		Member = function(id, name, age) //Member 클래스 생성
+		{
+			this.id = id;
+			this.name = name;
+			this.age = age;
+		}
+		
+	
+		var mem = new Member("tiger", "홍길동", 20);
+		alert(mem.id + "," + mem.name + "," + mem.age);
+		
+		/*
+		Member.prototype.setValue = function(id, name, age)
+		{
+			return this.age;
+		}//메서드 만들기 클래스명.prototype.메서드명 = function(parameter){...}
+		
+		Member.prototype.toString = function()
+		{
+			return this.id + "(" + this.name + ") 의 나이는 " + this.age;
+		}
+		*/
+		
+		
+		Member.prototype = 
+		{
+				setValue : function(id, name, age)
+				{
+					this.id = id;
+					this.name = name;
+					this.age = age;
+				},
+				getAge : function()
+				{
+					return this.age;
+				},
+				toString : function()
+				{
+					return this.id + "(" + this.name + ") 의 나이는 " + this.age;
+				}
+		}//JSON 표기법으로 메서드생성
+		
+		var mem = new Member("tiger", "홍길동", 24);
+		alert(mem.toString());
+	}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

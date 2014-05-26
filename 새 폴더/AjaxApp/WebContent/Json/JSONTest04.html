@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="ajax.js"></script>
+<script src="member.js"></script>
+<script>
+	function doStart()
+	{		 
+		sendRequest("member_json.jsp", null, callback, null);
+		 alert("2");
+	}
+	
+	 function callback() 
+	   {
+	      if (httpRequest.readyState == 4) 
+	      {
+	         if (httpRequest.status == 200) 
+	         {
+	        	
+	        	var docJson = eval("(" + httpRequest.responseText + ")"); //eval로 태그를 객체화 시켜서 자바스크립트에서 접근하기 편하게함
+	      
+	        	if(docJson.code=="success")
+	        		{
+	        		
+	        			var m = docJson.data.member;
+	        			alert(m.name + "," + m.id + "," + m.age);
+	        		}
+	        	else
+	        		{
+	        			alert("실패");
+	        		}
+	         } 
+	         else 
+	         {
+	            alert(httpRequest.status);
+	         }
+	         
+	      }
+	   }
+	
+	window.onload = function(){doStart();}
+
+
+</script>
+</head>
+<body>
+<h2>서버로부터  JSON 타입의 데이터를 받는 예제</h2>
+
+</body>
+</html>

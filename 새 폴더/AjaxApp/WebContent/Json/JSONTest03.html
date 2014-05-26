@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="ajax.js"></script>
+<script src="member.js"></script>
+<script>
+
+//제이슨으로 바꾸기위한 지금까지 했던 예제임
+	function doStart()
+	{
+		sendRequest("member_xml.jsp, null, callback, null)
+	}
+	
+	 function callback() 
+	   {
+	      if (httpRequest.readyState == 4) 
+	      {
+	         if (httpRequest.status == 200) 
+	         {
+	        	
+	        	var xmlDoc = httpRequest.responseText;
+	        	var code = xmlDoc.getElementsBytagName("code").item(0).TextContent;
+	        	
+	        	
+	        	
+	        	alert(code);
+	          
+	        	if(code=="success")
+	        		{
+	        			var name = xmlDoc.getElementsByTagName("name").item(0).TextContent;
+	        			var id = xmlDoc.getElementsByTagName("id").item(0).TextContent;
+	        			var age = xmlDoc.getElementsByTagName("age").item(0).TextContent;
+	        				
+	        			var mem = new Member(id, name, age);
+	        			alert(mem.toString());
+	        		}
+	        	else
+	        		{
+	        			alert("실패");
+	        		}
+	         } 
+	         else 
+	         {
+	            alert(httpRequest.status);
+	         }
+	         
+	      }
+	   }
+	
+	window.onload = function(){doStrart();}
+
+</script>
+</head>
+<body>
+<h2>서버로부터 XML타입의 데이터를 받는 예제</h2>
+</body>
+</html>

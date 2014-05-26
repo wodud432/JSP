@@ -49,7 +49,7 @@
 	{
 		if(httpRequest.readyState == 4)
 		{
-			if(httpRequest.stauts == 200)
+			if( httpRequest.status == 200)
 			{
 				alert("서버로부터 응답 : " + httpRequest.responseText);  //responseText 서버가 보낸 데이터를 받음
 			}

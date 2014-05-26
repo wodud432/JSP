@@ -41,20 +41,21 @@ public class FrontController extends HttpServlet {
 		
 		String asdf = req.getParameter("cmd");
 		String url=""; 
+		System.out.println(asdf);
 		HttpSession session = req.getSession(); // 중복가입 방지하기위해 세션 추가함
 		String current = (String)session.getAttribute("currentState");
 		
-		if(current != null && current.equals("COMPLETE"))
-		{
-			url = "/exam3/alreadyRegister.jsp";  //중복가입이면 중복이라는 페이지로 이동
-		}
-		else
-		{			
+//		if(current != null && current.equals("COMPLETE"))
+//		{
+//			url = "/exam3/alreadyRegister.jsp";  //중복가입이면 중복이라는 페이지로 이동
+//		}
+//		else
+//		{			
 			CommandFactory cp = CommandFactory.getFactory();
 			ICommand iCmd = cp.createCommand(asdf);
 			url = (String)iCmd.processCommand(req, resp);
 		
-		}			
+//		}			
 		
 		RequestDispatcher view = req.getRequestDispatcher(url);
 		view.forward(req, resp); 
